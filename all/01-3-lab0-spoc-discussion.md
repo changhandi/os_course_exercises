@@ -62,7 +62,7 @@
     unsigned gd_off_31_16 : 16;        // high bits of offset in segment
  };
 ```
-
+      ：后面的数字表示的是该成员变量的位宽。即其所占的二进制位数bit
 - 对于如下的代码段，
 
 ```
@@ -86,6 +86,11 @@ SETGATE(intr, 1,2,3,0);
 ```
 请问执行上述指令后， intr的值是多少？
 
+      执行上述命令后，intr的值为0x20003。
+      unsigned占用4字节，即32位，getedesc占用8字节，即64位。
+      而X86使用小端存储，intr所占内存对应位置应该是getedesc的低32位。
+      同样由于X86使用小端存储，所以intr高16位为gd_ss，低16位为gd_off_15_0。
+
 ### 课堂实践练习
 
 #### 练习一
@@ -97,7 +102,8 @@ SETGATE(intr, 1,2,3,0);
 #### 练习二
 
 宏定义和引用在内核代码中很常用。请枚举ucore或rcore中宏定义的用途，并举例描述其含义。
-
+    宏 #define SETGATE(gate, istrap, sel, off, dpl)，作为中断描述符的初始化的函数；
+    宏 #define STS_TG32 0xF，作为一个常量使用，其作用于中断描述符的 gd_type，代表是陷入门。
 #### reference
  - [Intel格式和AT&T格式汇编区别](http://www.cnblogs.com/hdk1993/p/4820353.html)
  - [x86汇编指令集  ](http://hiyyp1234.blog.163.com/blog/static/67786373200981811422948/)
