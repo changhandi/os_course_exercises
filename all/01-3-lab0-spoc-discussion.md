@@ -39,7 +39,9 @@
        不同的特权级包含多个CSR寄存器，根据约定，CSR地址的高4位用于编码CSR根据特权级读写的可访问性。
        最高2位指示这个寄存器是否是可以读/写（00、01或者10),还是只读的（11)。
        后面2位指示了能够访问这个CSR所需要的最低特权级(用户级是 00，管理员级是 01）。
-       具体情况如下
+       具体情况如下https://img-blog.csdn.net/20180902144223890?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3AzNDA1ODkzNDQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70
+       
+       
        
       
 
