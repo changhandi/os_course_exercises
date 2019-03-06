@@ -54,9 +54,13 @@
 - 以ucore/rcore lab8的answer为例，ucore的系统调用有哪些？大致的功能分类有哪些？
 
      其中共有25个系统调用，将其按照功能分为四类之后，如下所示：
+     
          进程管理：fork/exit/wait/exec/yield/kill/getpid/sleep
+         
          文件操作：open/close/read/write/seek/fstat/fsync/getcwd/getdirentry/dup
+         
          内存管理：pgdir
+         
          外设输出：putci
          
 ## 3.4 linux系统调用分析
